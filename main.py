@@ -76,13 +76,8 @@ def run_pipeline():
 
     run_count = get_run_count()
 
-    BASE_DATE = pd.to_datetime("2018-01-01")  # awal data
-    MAX_DATE = pd.to_datetime("2018-12-31")   # batas data (optional)
-
-    cutoff_date = BASE_DATE + pd.Timedelta(days=7 * run_count)
-
-    if cutoff_date > MAX_DATE:
-        cutoff_date = MAX_DATE
+    start_date = pd.to_datetime("2018-06-01")
+    cutoff_date = start_date + pd.Timedelta(days=7 * run_count)
 
     print(f"\n📊 Running Weekly Report Pipeline")
     print(f"📅 Cutoff Date: {cutoff_date.date()}")
