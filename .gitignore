@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+
+# data besar (opsional)
+*.csv
+
+# output
+*.png
+*.pdf
+
+# secret
+.env
+state.txt
