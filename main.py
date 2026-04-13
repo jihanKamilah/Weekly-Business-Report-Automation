@@ -5,6 +5,12 @@ from datetime import datetime
 import smtplib
 from email.message import EmailMessage
 
+from extract import load_data
+from transform import transform_data
+from simulate import simulate_data
+from metrics import compute_metrics
+from insight import generate_insights
+from report import generate_report
 
 STATE_FILE = "state.txt"
 
