@@ -37,3 +37,54 @@ jobs:
 
       - name: Run pipeline
         run: python main.py
+
+        name: Weekly Report Automation
+
+on:
+  schedule:
+    - cron: '0 1 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: write   # 🔥 WAJIB biar bisa push state.txt
+
+jobs:
+  run-report:
+    runs-on: ubuntu-latest
+
+    env:
+      EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+      EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Debug files
+        run: |
+          echo "📂 Current dir:"
+          pwd
+          echo "📁 Root files:"
+          ls -R
+
+      - name: Run pipeline
+        run: python main.py
+        
+      - name: Commit updated state
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git add state.txt
+          git commit -m "Update state"
+          git push
