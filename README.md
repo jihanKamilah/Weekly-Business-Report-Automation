@@ -1,4 +1,5 @@
 # 📊 Weekly Business Report Automation
+<img width="959" height="539" alt="Email Automated File" src="https://github.com/user-attachments/assets/3e84ea97-5e36-45a3-9db8-d4263bba6017" />
 
 ## 📌 Project Overview
 
@@ -121,6 +122,7 @@ Examples:
 ---
 
 ## 📄 Report Output
+<img width="323" height="372" alt="image" src="https://github.com/user-attachments/assets/09535a3d-8d34-4b53-a331-ebc0b628aa0c" />
 
 The pipeline generates a PDF report containing:
 
