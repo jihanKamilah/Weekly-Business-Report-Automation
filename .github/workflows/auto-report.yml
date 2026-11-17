@@ -1,23 +1,23 @@
-name: Weekly Report Automation
+#name: Weekly Report Automation
 
-on:
-  schedule:
-    - cron: '0 1 * * 1'
-  workflow_dispatch:
-
-permissions:
-  contents: write  
-
-jobs:
-  run-report:
-    runs-on: ubuntu-latest
-
-    env:
-      EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
-      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
-      EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
+#on:
+#  schedule:
+#    - cron: '0 1 * * 1'
+#  workflow_dispatch:
+#
+#permissions:
+#  contents: write  
+#
+#jobs:
+#  run-report:
+#    runs-on: ubuntu-latest
+#
+#    env:
+#      EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+#      EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+#      EMAIL_RECEIVER: ${{ secrets.EMAIL_RECEIVER }}
+#      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+#
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
